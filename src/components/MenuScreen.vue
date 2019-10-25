@@ -2,19 +2,21 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Campaigns</h2>
+
+    <div id="dropdown">
+    <select class="form-control" @change="selectOption($event)">
+        <option value="" selected disabled>Choose</option>
+        <option v-for="dateRange in dateRanges" :value="dateRange.id" :key="dateRange.id">{{ dateRange.name }}</option>
+    </select>
+    <br><br>
+    <p><span>Selected job title: {{ selectedJobTitle  }}</span></p>
+    </div><!-- end dropdown -->
     <button @click="testme($event)" > click me </button>
-<div id="dropdown">
-  <select class="form-control" @change="selectOption($event)">
-    <option value="" selected disabled>Choose</option>
-    <option v-for="dateRange in dateRanges" :value="dateRange.id" :key="dateRange.id">{{ dateRange.name }}</option>
-  </select>
-  <br><br>
-  <p><span>Selected job title: {{ selectedJobTitle  }}</span></p>
-</div>
 
     <h2>Conversions</h2>
-    {{campaigns}}
-  </div>
+         <div v-for="campaign in campaigns">{{ campaign.name }}</div>
+    </div>
+
 </template>
 
 <script>
@@ -42,6 +44,20 @@ export default {
                 date: "october",
                 pageviews: "12000",
                 conversions: "72"
+              }
+            }
+          ]//end data
+        },
+        { 
+          name: "campaign two",
+          medium: "adwords",
+          data: [
+            {
+              ad: "ad2",
+              google_stats: {
+                date: "october",
+                pageviews: "1000",
+                conversions: "12"
               }
             }
           ]//end data
