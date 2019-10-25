@@ -13,6 +13,9 @@ const state = {
 
 const getters = {
   // all your getters here
+  getVariable( state ) {
+    return state.example;
+ }
 }
 
 const actions = {
@@ -22,8 +25,16 @@ const actions = {
      */
   reset ({ commit }) {
     commit('RESET')
+  },
+  fetchVariable({ commit }) {
+    return new Promise( (resolve, reject) => {
+           // Make network request and fetch data
+           // and commit the data
+           commit('SET_VARIABLE', data); 
+           resolve();
+    })
   }
-}
+}//end actions
 
 const mutations = {
   // all your mutations here
@@ -34,8 +45,12 @@ const mutations = {
     Object.keys(initialState()).forEach(key => {
       state[key] = initialState()[key]
     })
-  }
-}
+  },
+  SET_VARIABLE (state, data) {
+    data = 'Kismet'
+    state.example = data;
+ }
+}//end mutations
 
 export default {
   namespaced: true,
