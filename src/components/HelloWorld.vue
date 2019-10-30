@@ -1,18 +1,16 @@
 <template>
   <div class="hello">
-    <h1>Data: {{ example }}</h1>
+    <h1>Data: {{ getVariable }}</h1>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'HelloWorld',
 
-  computed: {
-    example() {
-      return this.$store.state.example;
-      //return this.$store.getters.fetchVariable
-    }
+computed: {
+    ...mapGetters('Template', ['getVariable'])
   },
 }//end export
 </script>

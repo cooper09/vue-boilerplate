@@ -4,7 +4,7 @@
  */
 const initialState = () => ({
   // all your state variables here
-  example: 'value'
+  example: 'The world is a wonderful place...'
 })
 
 const state = {
