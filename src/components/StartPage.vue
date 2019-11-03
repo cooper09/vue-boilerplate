@@ -6,14 +6,26 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'StartPage',
 
-computed: {
-    ...mapGetters('Template', [
-      'getVariable'
-      ])//end mapGetters
+  computed: {
+      ...mapGetters('Template', [
+        'getVariable',
+        'getData'
+        ])//end mapGetters
+    },
+  methods: {
+    ...mapActions('Template', [
+      'getData'
+    ])
   },
+  created() {
+    this.$store.dispatch('GET_DATA');
+  } //end created
+
 }//end export
 </script>
 

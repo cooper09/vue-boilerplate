@@ -33,6 +33,14 @@ const actions = {
            commit('SET_VARIABLE', data); 
            resolve();
     })
+  },
+  getData({ commit }) {
+    return new Promise( (resolve, reject) => {
+           // Make network request and fetch data
+           // and commit the data
+           commit('GET_DATA', data); 
+           resolve();
+    })
   }
 }//end actions
 
@@ -49,7 +57,11 @@ const mutations = {
   SET_VARIABLE (state, data) {
     data = 'Kismet'
     state.example = data;
- }
+ },
+ GET_DATA (state, data) {
+   data = 'Kismet'
+   state.example = data;
+}
 }//end mutations
 
 export default {
