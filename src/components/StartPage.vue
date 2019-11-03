@@ -7,7 +7,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'HelloWorld',
+  name: 'StartPage',
 
 computed: {
     ...mapGetters('Template', [

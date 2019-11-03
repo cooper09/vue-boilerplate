@@ -1,17 +1,17 @@
 <template>
   <div class="hello">
-    <h1>Data: {{ getVariable }}</h1>
+    <h1>MultiLine Data: {{ getMultiline }}</h1>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'HelloWorld',
+  name: 'Multiline',
 
 computed: {
-    ...mapGetters('Template', [
-      'getVariable'
+    ...mapGetters('Multiline', [
+      'getMultiline'
       ])//end mapGetters
   },
 }//end export
